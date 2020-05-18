@@ -1,0 +1,131 @@
+a,a:hover
+{
+    text-decoration: none
+}
+
+
+body
+{
+    background-image: url(../images/ADB.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.row .col-md-4 form
+{
+    background-color: rgba(0,0,0,0.75);
+    border-radius: 10px;
+
+}
+
+
+.myinpt_log
+{
+    border-radius:30px;
+    background-color:rgba(0,0,0,0.2)!important;
+    color: white !important;
+    font-size: 18px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+input[type='file']{
+    color: whitesmoke;
+        font-family: sans-serif;
+}
+
+input[type='file']::-webkit-file-upload-button {
+    
+    color: white;
+   background-color:rgba(0, 0, 0 ,0.7);
+    font-family: sans-serif;
+    padding: 10 15;
+    border-radius: 5px;
+     border: none;
+    
+   cursor: pointer;
+    
+}
+
+.myicone_log,.myicone2_log
+{
+ 
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #ffffff;
+}
+#myicone1_log,#myicone2_log
+{
+    cursor: pointer;
+}
+.checkbox_log
+{
+    background-color:red;
+
+}
+.check-info_log
+{
+    color: #ffffff;
+    font-size: 18px;
+}
+.AdminDB .position-relative {
+    width:50%;
+    margin: auto;
+    
+    
+    
+}
+.top h2
+{
+    color: #3498db;
+    font-style: italic;
+    font-size: 80px;
+    font-family: 'Alex Brush', cursive;
+}
+.top .btn{
+    border-radius: 45%;
+}
+
+
+.row .col-md-4 form {
+    background-color: rgba(0,0,0,0.75);
+    border-radius: 10px;
+
+   
+}
+.add{
+    height: 97%;
+    
+}
+
+.mybtn_log
+{
+
+
+  border-radius:30px;
+  color: #ffffff;
+  font-size: 20px;
+  height: auto;
+  padding: 10px 15px;
+  width: 50%;
+  border:0px;
+  text-align: center;
+  font-family: Segoe UI;
+}
+.frogot_log
+{
+    color: #ffffff;
+    font-size: 20px;
+     
+}
+.create_log
+{
+    color:#3498db;
+}
+.footeer{
+   
+   
+  background-color: rgba(0,0,0,0.2);
+}
