@@ -19,7 +19,13 @@ else
 
  $p=new User();
 
+<?php  if(isset($_POST['entercomm']))
+{
+      
+    $text=$_POST['text'];
+    $p->ADD_feedback_u($userprofile,$text);
 
+}
 ?>
 
 <html>
@@ -110,19 +116,50 @@ else
                 $price= $data['price'];
                
                
-              echo '<div class="col-md-4 my-2 "> 
+            echo '<div class="col-md-4 my-2 "> 
               <div class="card  mx-auto  " style="width: 18rem;">
-                     <img src="images/'.$pimg.'" class="card-img-top img-fluid" alt="'.$pimg.'">
-                     <div class="card-body text-center">
-                        <h5 class="card-title ">'.$pname.'</h5>
-                        <p class="card-text ">'.$pdesc.'</p>
-                        <p class="card-text fa-2x ">'.$price.'.00EGP </p>
-                        <a href="#" class="btn btn-primary ">Buy now</a>
-                      </div>
-                    </div></div>';
-             } ?>
+          <form method="post" >
+<input style="display:none;" class="hidden" type="text" name="c_id" value="'.$id.'"/>
+                    <img name="c_img" src="images/'.$pimg.'" class="card-img-top img-fluid img" alt="'.$pimg.'">
+            <div class="card-body text-center">
+                        <h5 class="card-title cname " name="c_name" >'.$pname.'</h5>
+                        <p class="card-text cdesc" name="c_desc">'.$pdesc.'</p>
+                        <p class="card-text fa-2x cprice" name="c_price">'.$price.'.00EGP </p>
+               <button name="ADD_To_Cart" type="submit"  class="btn btn-primary cart"> ADD To Cart</button>
+            </div>
+             
+       </form>
+       
+            </div>
+            </div>' ;
+             }?>
+            
+<?php  if(isset($_POST['ADD_To_Cart']))
+{
+      
+    $pc_id=$_POST['c_id'];
+     //echo $pc_id ;
+   
+    $p->AddToCart_u($userprofile,$pc_id);
+
+}
+?>
                 </div>
                   </div>
+                   </section>
+           <section>
+            <div class="feedback">
+        <div class="container my-5 text-center">
+           <h4> your FeadBack important  </h4>
+            <form method="post" class="py-5 my-5">
+     <textarea name="text" id="textarea" class="form-control" type="text" 
+               placeholder="Enter Message "> </textarea> 
+                <button id="send" name="entercomm" type="submit" class="btn btn-info mt-3"> Send</button>
+           </form>  
+       
+       </div>
+              
+              </div>
                    </section>
            
                     <section class="final">

@@ -110,6 +110,14 @@ class DaBa{
   			$result=$this->connect()->query($sql);
 		   	return $result;
 		 }
+    
+    
+     public function AddToCart($username,$pc_id){
+			$sql =  " INSERT INTO  cart
+            (username,pc_id) VALUES('$username','$pc_id') ";
+  			$result=$this->connect()->query($sql);
+		   	return $result;
+		 }
 
 }
 ?>
