@@ -24,7 +24,12 @@ class User {
 		}
    
     
-    
+      public function ADD_feedback_u($username,$text){
+			$this->username=$username;
+			$this->text=$text;
+            $DB = new  DaBa();
+			$check=$DB->Add_Feedback($username,$text);
+		 }
     
   
     
