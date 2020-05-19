@@ -19,7 +19,13 @@ else
 
  $p=new User();
 
+<?php  if(isset($_POST['entercomm']))
+{
+      
+    $text=$_POST['text'];
+    $p->ADD_feedback_u($userprofile,$text);
 
+}
 ?>
 
 <html>
@@ -123,6 +129,20 @@ else
              } ?>
                 </div>
                   </div>
+                   </section>
+           <section>
+            <div class="feedback">
+        <div class="container my-5 text-center">
+           <h4> your FeadBack important  </h4>
+            <form method="post" class="py-5 my-5">
+     <textarea name="text" id="textarea" class="form-control" type="text" 
+               placeholder="Enter Message "> </textarea> 
+                <button id="send" name="entercomm" type="submit" class="btn btn-info mt-3"> Send</button>
+           </form>  
+       
+       </div>
+              
+              </div>
                    </section>
            
                     <section class="final">
