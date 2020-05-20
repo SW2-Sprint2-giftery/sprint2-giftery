@@ -32,7 +32,13 @@ class User {
 			$check=$DB->Add_Feedback($username,$text);
 		 }
     
-  
+      
+    public function AddToCart_u($username,$pc_id){
+			$this->username=$username;
+			$this->pc_id=$pc_id;
+            $DB = new  DaBa();
+			$check=$DB->AddToCart($username,$pc_id);
+		 }
     
 }
 
