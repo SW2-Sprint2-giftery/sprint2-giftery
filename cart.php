@@ -1,4 +1,24 @@
+<?php
 
+ session_start();
+//error_reporting(0);
+
+$userprofile=	$_SESSION['username'];
+if($userprofile == true)
+{
+    
+}
+else
+{
+    	header('location:login1.php');
+}
+ 
+
+ include "cart_class.php";
+
+ $c=new cart();
+ 
+?>
 
 
 
@@ -84,17 +104,28 @@
     
        <div class="container text-center">
           <div class="row my-5  justify-content-center align-items-center  ">
-             <div class="col-md-4 my-2 "> 
+                <?php
+              
+                 $result=$c->DisplayCartProduct_u($userprofile) ;
+           foreach ((array) $result as $data) {
+               $id=$data['id'];
+                $pname= $data['name'];
+                $pdesc= $data['product_desc'];
+                $pimg= $data['img'];
+                $price= $data['price'];
+
+        
+              echo '<div class="col-md-4 my-2 "> 
               <div class="card  mx-auto  " style="width: 18rem;">
        
-                    <img name="c_img" src="images/" class="card-img-top img-fluid img" alt="">
+                    <img name="c_img" src="images/'.$pimg.'" class="card-img-top img-fluid img" alt="'.$pimg.'">
             <div class="card-body text-center">
-                        <h5 class="card-title cname " name="c_name" ></h5>
-                        <p class="card-text cdesc" name="c_desc"></p>
-                        <p class="card-text fa-2x cprice" name="c_price">.00EGP </p>
+                        <h5 class="card-title cname " name="c_name" >'.$pname.'</h5>
+                        <p class="card-text cdesc" name="c_desc">'.$pdesc.'</p>
+                        <p class="card-text fa-2x cprice" name="c_price">'.$price.'.00EGP </p>
                <button name="buy" type="submit"  class="btn btn-primary cart">Buy now</button>
                <form class=" mt-2" method="post" style="background-color:transparent !important ; display;inline;" >
-<input style="display:none;" class="hidden" type="text" name="pc_id" value=""/>
+<input style="display:none;" class="hidden" type="text" name="pc_id" value="'.$id.'"/>
                  <button name="DElete" type="submit"  class="btn btn-primary cart">Delete</button>
                  </form>
             </div>
@@ -102,8 +133,8 @@
 
        
             </div>
-            </div>
-         
+            </div>' ;
+             }?>
             
 
                 </div>
@@ -266,3 +297,13 @@
     </body>
 </html>
 
+<?php  if(isset($_POST['DElete']))
+{
+      
+    $Dpc_id=$_POST['pc_id'];
+   
+   
+    $c->DeleteCartproduct_cart($Dpc_id);
+
+}
+?>
