@@ -164,6 +164,10 @@ if(isset($_POST['deleteproduct']))
 </section>
         
         
+        
+        
+        
+        
 
          <section class="py-2  px-5 border-top border-primary footeer ">
             <span class="Copyright">Copyright © 2020 UIGRID | All Rights Reserved | 

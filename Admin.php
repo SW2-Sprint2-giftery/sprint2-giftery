@@ -31,6 +31,12 @@ class Admin extends User{
 			$check=$DB->Deleteproduct($pname);
     }
     
+    
+        public function Display_feedback_A(){
+			$DB = new  DaBa();
+			$data=$DB->display_feedback();
+            return $data;
+		}
 }
 
 //$A = new Admin();
