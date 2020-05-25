@@ -50,7 +50,7 @@ if(isset($_POST['deleteproduct']))
       <link rel="stylesheet" href="css/all.css" />
       <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Alex+Brush&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="css/admiindb.css" />
+      <link rel="stylesheet" href="css/admiindb1.css" />
   </head>
     <body>
    
@@ -77,7 +77,7 @@ if(isset($_POST['deleteproduct']))
                            name="pname" required placeholder="Product name" />
                    </div> 
                      <div class="position-relative ">
-                    <input class="form-control myinpt_log" type="number"
+                    <input id="addprice" class="form-control myinpt_log" type="number"
                            name="pprice" required placeholder="Product price" />
                    </div> 
                      <div class="position-relative">
@@ -95,7 +95,7 @@ if(isset($_POST['deleteproduct']))
                 
 
                    <div class="text-center py-3"> 
-               <button id="myBtn_log" class="mybtn_log btn btn-primary form
+               <button id="myBtn" class="mybtn_log btn btn-primary form
                        " type="submit" name="addproduct"> Add </button></div>
 
 
@@ -116,7 +116,7 @@ if(isset($_POST['deleteproduct']))
                            name="p_new_name" required placeholder="new Product name" />
                    </div>
                      <div class="position-relative ">
-                    <input class="form-control myinpt_log" type="number"
+                    <input id="updateprice" class="form-control myinpt_log" type="number"
                            name="pprice" required placeholder="New Product price" />
                    </div> 
                      <div class="position-relative">
@@ -134,7 +134,7 @@ if(isset($_POST['deleteproduct']))
                 
 
                    <div class="text-center py-3"> 
-               <button id="myBtn_log" class="mybtn_log btn btn-primary form
+               <button id="myBtn2" class="mybtn_log btn btn-primary form
                        " type="submit" name="UpdateProduct"> Update </button></div>
 
 
@@ -146,11 +146,11 @@ if(isset($_POST['deleteproduct']))
                     <h3 class="m-auto py-3 px-2 text-center text-primary">
                     Delete product
                     </h3>
-                   <div class="position-relative "> <input class="form-control myinpt_log" type="text" name="upname" required placeholder="product name" />
+                   <div id="name" class="position-relative "> <input class="form-control myinpt_log" type="text" name="upname" required placeholder="product name" />
                    </div> 
 
                    <div class="text-center py-4"> 
-                       <button id="myBtn_log" class="mybtn_log btn btn-primary form
+                       <button id="myBtn3" class="mybtn_log btn btn-primary form
                        " type="submit" name="deleteproduct"> Delete product </button></div>
 
 
@@ -162,25 +162,48 @@ if(isset($_POST['deleteproduct']))
                  
                  </div>
 </section>
+        <section class="my-2">
+        <div class=" comment text-center fa-3x text-primary m-auto bd-dark w-50 ">
+        <span class="sh"> Users Comments  </span>
+        <i class="d fa fa-arrow-down"></i>
+        <i class="u hide fa fa-arrow-up"></i>
+        </div>
         
-        
-        
-        
-        
-        
+         <div class="row coment-row my-5 hide justify-content-center align-items-center  ">
+                <?php
+              
+                 $result= $A->Display_feedback_A();
+           foreach ((array) $result as $data) {
+                $pname= $data['username'];
+                $pdesc= $data['text'];
 
+        
+              echo '<div class="col-md-12 my-2 "> 
+              <div class="card  mx-auto  " style="width:25rem;">
+     
+            <div class="card-body text-center">
+                        <h5 class="card-title cname " name="c_name" >UserName:'.$pname.'</h5>
+                        <p class="card-text cdesc" name="c_desc">'.$pdesc.'</p>
+             
+            </div>
+             
+      
+       
+            </div>
+            </div>' ;
+             }?>
+        </div>
+</section>
          <section class="py-2  px-5 border-top border-primary footeer ">
             <span class="Copyright">Copyright © 2020 UIGRID | All Rights Reserved | 
                 <span class="Copyright-link"><a href="Admindb.php">www.thegiftery.com</a> </span>
             </span>
        
         </section>
-
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="dist/bundle.js"></script>
-     
+       <script src="js/jquery-3.3.1.min.js"></script>   
+            <script src="js/popper.min.js"></script>    
+            <script src="js/bootstrap.min.js"></script>
+     <script src="js/AdminDB11.js"></script>
      </body>
 </html>
 

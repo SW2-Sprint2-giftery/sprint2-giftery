@@ -83,8 +83,11 @@ $(document).ready(function(){
 
 
 
-$("#cart").click(function(){
-    alert("mmm");
-    
- 
-})
+$(".Exit").click(function(){
+    $(".search_containt").toggle(300);
+});
+
+/*$(".cart").click(function(){
+    $(this).attr("disabled","disabled");
+});*/
+

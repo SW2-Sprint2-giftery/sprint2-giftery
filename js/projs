@@ -83,8 +83,12 @@ $(document).ready(function(){
 
 
 
-$("#cart").click(function(){
-    alert("mmm");
+$("#ADDto").click(function(){
+    alert($(this).siblings("p").value);
+    let img = $(this).siblings("img").attr("src");
+    
+    let price = $(this).siblings("p").value;
+    console.log(price);
     
  
 })

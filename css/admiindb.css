@@ -129,3 +129,8 @@ input[type='file']::-webkit-file-upload-button {
    
   background-color: rgba(0,0,0,0.2);
 }
+
+.comment
+{
+    background-color: red;
+}

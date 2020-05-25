@@ -5,7 +5,7 @@
  session_start();
 error_reporting(0);
 
-$userprofile=	$_SESSION['username'];
+$userprofile =	$_SESSION['username'];
 if($userprofile == true)
 {
     
@@ -20,7 +20,7 @@ else
 
  $p=new User();
  mysql_connect("localhost","root","") or die("could not find ");
-mysql_select_db("data") or die("could not find ");
+mysql_select_db("giftry_sprint2_sw2") or die("could not find ");
 
 if(isset($_POST['search']))
 {
@@ -105,7 +105,7 @@ $query =mysql_query("SELECT * FROM product  WHERE name='$search'") or die("not f
 
            </li>
            <li class="py-3 px-2">
-              <a class="account" href="task2.html">My Account</a>
+              <a class="account" href="cart.php">My Account</a>
             </li>
              
             
@@ -116,7 +116,7 @@ $query =mysql_query("SELECT * FROM product  WHERE name='$search'") or die("not f
               <a class="account" href="register1.php">Create new account Now</a>
             </li>
               <li class="py-3 px-2">
-              <a class="account" href="task2.html">My Cart</a>
+              <a class="account" href="cart.php">My Cart</a>
             </li>
           
               <li class="py-3 px-2">

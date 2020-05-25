@@ -1,7 +1,7 @@
 <?php
 
  session_start();
-//error_reporting(0);
+error_reporting(0);
 
 $userprofile=	$_SESSION['username'];
 if($userprofile == true)
@@ -18,7 +18,17 @@ else
 
  $c=new cart();
  
+  if(isset($_POST['DElete']))
+{
+      
+    $Dpc_id=$_POST['pc_id'];
+   
+   
+    $c->DeleteCartproduct_cart($Dpc_id);
+
+}
 ?>
+
 
 
 
@@ -44,7 +54,7 @@ else
 
            </li>
            <li class="py-3 px-2">
-              <a class="account" href="task2.html">My Account</a>
+              <a class="account" href="cart.php">My Account</a>
             </li>
              
             
@@ -55,7 +65,7 @@ else
               <a class="account" href="register1.php">Create new account Now</a>
             </li>
               <li class="py-3 px-2">
-              <a class="account" href="task2.html">My Cart</a>
+              <a class="account" href="cart.php">My Cart</a>
             </li>
           
               <li class="py-3 px-2">
@@ -91,7 +101,7 @@ else
                 <i class="fa fa-search position-absolute "></i>
                  </form>
                   <a href="#"><i class="fab fa-opencart fa-2x ml-5 ico"></i></a> 
-             <a class="nav-link cartLink ml-2 mr-5" href="task.html">MyCart</a>
+             <a class="nav-link cartLink ml-2 mr-5" href="cart.php">MyCart</a>
              <a class="nav-link ico" href="#"> <i class="far fa-user ml-4 ico"></i></a>
              <a href="login1.php" class="signLink mr-1 pr-3 py-1 border-right sign">SignIn</a>
              <a class="nav-link ml-2 mr-5 join" href="register1.php"> JoinUs</a> 
@@ -293,17 +303,6 @@ else
             <script src="js/bootstrap.min.js"></script>
             <script src="js/owl.carousel.min.js"></script> 
             <script src="js/wow.js"></script> 
-            <script src="pro11.js"></script> 
+            <script src="js/index1.js"></script> 
     </body>
 </html>
-
-<?php  if(isset($_POST['DElete']))
-{
-      
-    $Dpc_id=$_POST['pc_id'];
-   
-   
-    $c->DeleteCartproduct_cart($Dpc_id);
-
-}
-?>

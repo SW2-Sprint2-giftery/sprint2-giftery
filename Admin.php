@@ -30,9 +30,8 @@ class Admin extends User{
             $DB = new  DaBa();
 			$check=$DB->Deleteproduct($pname);
     }
-    
-    
-        public function Display_feedback_A(){
+
+      public function Display_feedback_A(){
 			$DB = new  DaBa();
 			$data=$DB->display_feedback();
             return $data;

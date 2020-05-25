@@ -4,6 +4,7 @@ include 'database.php';
 class cart {
         private $username;
 		private $pc_id;
+
 public function DisplayCartProduct_u($username) {
 			$DB = new  DaBa();
 			$data=$DB->DisplayCartProduct($username);
@@ -14,6 +15,5 @@ public function DisplayCartProduct_u($username) {
 			$data=$DB->DeleteCartproduct($pc_id);
          return $data;
 		}
-
 }
 ?>

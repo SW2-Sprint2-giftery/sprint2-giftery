@@ -4,6 +4,7 @@
 	padding: 0px;
     font-family: "open sans";
 }
+
 h1 , h2 , h3 ,h4{
     font-family: "Helvetica";
     font-size: 25px;
@@ -248,3 +249,5 @@ transition: all 0.5s;
         width: 100%;
     }
 }
+
+

@@ -16,6 +16,7 @@ include 'user.php';
 
 }
 
+
 //$t = new Tourist();
 //$t ->searchplacess('dubai');
 //$t ->choosecategories("h");

@@ -9,7 +9,7 @@ class DaBa{
 			$this->Servername="localhost";
 			$this->Username="root";
 			$this->Password="";
-			$this->DBname="gif";
+			$this->DBname="giftry_sprint2_sw2";
 			$conn =new mysqli($this->Servername,$this->Username,$this->Password,$this->DBname);
 			return $conn;
 		}

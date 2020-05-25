@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2020 at 02:35 AM
+-- Generation Time: May 25, 2020 at 06:08 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.40
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sw2_giftery`
+-- Database: `giftry_sprint2_sw2`
 --
 
 -- --------------------------------------------------------
@@ -39,9 +39,9 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `username`, `pc_id`) VALUES
-(1, 'Mahmoud', 7),
-(2, 'Mahmoud', 8),
-(7, 'Ali', 7);
+(9, 'Mahmoud', 10),
+(10, 'Mahmoud', 11),
+(11, 'Ali', 9);
 
 -- --------------------------------------------------------
 
@@ -62,8 +62,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `price`, `product_desc`, `img`) VALUES
-(7, 'gg', 25, '       oojj                  ', 'HP.jpg'),
-(8, 'jjj', 255, '        hjklll                 ', 'item_XXL_38655519_150657188.jpg');
+(9, 'Dell Inspiron G5 5590 Gaming Laptop', 26999, '             Intel Core i7-9750H, 15.6 Inch, 1 TB Plus 512 SSD, 16 GB RAM, NVIDIA GeForce RTX 2070W1', 'item_XL_99997917_62e00e7b657be.jpg'),
+(10, 'HP 9EV92EA ABV Pavilion 15-dk0028ne Gaming Laptop', 18999, '                      15.6 Inch FHD IPS, Intel Core i7-9750H, 16 GB RAM, 1 TB SATA and 256 GB PCIe, ', 'item_XL_110270193_ba7990649cd9e.jpg'),
+(11, 'Lenovo YOGA 730 ', 40000, '                   Core i7-8550U, 15.6 Inch 4K UHD , 16GB, 1TB, nVidia GTX1050 4GB, Win10, English K', 'item_XL_55262628_e20003accee60.jpg');
 
 -- --------------------------------------------------------
 
@@ -149,19 +150,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `sw2_feedback`
 --
 ALTER TABLE `sw2_feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
