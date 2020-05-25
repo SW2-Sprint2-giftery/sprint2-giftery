@@ -9,7 +9,7 @@ class DaBa{
 			$this->Servername="localhost";
 			$this->Username="root";
 			$this->Password="";
-			$this->DBname="sw2_giftery";
+			$this->DBname="gif";
 			$conn =new mysqli($this->Servername,$this->Username,$this->Password,$this->DBname);
 			return $conn;
 		}
@@ -37,7 +37,7 @@ class DaBa{
                     return $data;
                 }
             }    
-    
+      
     
     public function CheckUser($username,$password){
 				$datas=$this->getAllUsers();
@@ -59,6 +59,9 @@ class DaBa{
     
     
     public function Insertproduct($pname,$price,$pdesc,$pimg){
+        
+        
+        
 			$sql =  " INSERT INTO  product
             (name,price,product_desc,img) 
 			                   VALUES
@@ -66,6 +69,35 @@ class DaBa{
   			$result=$this->connect()->query($sql);
 		   	return $result;
 		 }
+    
+    
+    
+     public function DisplayCartProduct($username)  
+    {
+        
+            $sql =" SELECT   * FROM product INNER JOIN cart ON product.id=cart.pc_id WHERE cart.username='$username'";
+         
+            $result=$this->connect()->query($sql);
+			$numRows=$result->num_rows;
+			if($numRows > 0){
+				while ($row=$result->fetch_assoc()) {
+					$data[]=$row;
+				}
+			
+           
+                	return $data;
+			}
+      
+
+    }
+      public function DeleteCartproduct($pc_id)
+    {
+        $sql = "DELETE  FROM cart WHERE id='$pc_id'";
+            
+        	$result=$this->connect()->query($sql);
+		   	return $result;
+    }
+    
     
      public function UpdateProduct($pname,$p_new_name,$price,$pdesc,$pimg)
      {
@@ -102,7 +134,23 @@ class DaBa{
         	$result=$this->connect()->query($sql);
 		   	return $result;
     }
-     
+    
+     public function displayproudect_search($pname)  
+    {
+            $sql ="SELECT * FROM product WHERE name='$pname'";
+            $result=$this->connect()->query($sql);
+			$numRows=$result->num_rows;
+			if($numRows > 0){
+				while ($row=$result->fetch_assoc()) {
+					$data[]=$row;
+				}
+			
+           
+                	return $data;
+			}
+      
+
+    }
     
     public function Add_Feedback($username,$text){
 			$sql =  " INSERT INTO  sw2_Feedback
@@ -110,14 +158,62 @@ class DaBa{
   			$result=$this->connect()->query($sql);
 		   	return $result;
 		 }
+     public function display_feedback()  
+    {
+            $sql ="SELECT * FROM sw2_Feedback";
+            $result=$this->connect()->query($sql);
+			$numRows=$result->num_rows;
+			if($numRows > 0){
+				while ($row=$result->fetch_assoc()) {
+					$data[]=$row;
+				}
+			
+           
+                	return $data;
+			}
+      
+
+    }
+    public function getAllcartProduct($username,$pc_id){
+                $sql="SELECT id , username , pc_id FROM  cart WHERE username='$username' AND pc_id='$pc_id'";
+      
+                $result=$this->connect()->query($sql);
+                $numRows=$result->num_rows;
+                if($numRows > 0){
+                    while ($row=$result->fetch_assoc()) {
+                        $data[]=$row;
+                    }
+                    return $data;
+                }
+        else{
+            $data[]=[];
+            return $data;
+        }
+            }  
+    
     
     
      public function AddToCart($username,$pc_id){
-			$sql =  " INSERT INTO  cart
-            (username,pc_id) VALUES('$username','$pc_id') ";
-  			$result=$this->connect()->query($sql);
-		   	return $result;
+  // echo $username . $pc_id;
+         $datas=$this->getAllcartProduct($username,$pc_id);
+        // print_r($datas);
+          foreach ( (array)$datas as $data) {
+                if($username != $data['username'] && $pc_id != $data['pc_id'])
+                {
+                    	//echo "add";
+                        $sql =  "INSERT INTO  cart (username,pc_id) VALUES('$username','$pc_id') ";
+  			           $result=$this->connect()->query($sql);
+		   	           return $result;
+                     
+                }
+               
+              
+                                      
+               }
+			
 		 }
+    
+    
 
 }
 ?>
