@@ -14,6 +14,15 @@ class Admin extends User{
         return  self::$ob ; 
     }
     
+    public function set($key ,$value)
+    {
+        $this->$key=$value;
+    }
+    public function get($key)
+    {
+       return $this->$key;
+    }
+    
     public function addproduct_A($pname,$price,$pdesc,$pimg)
     {
             $this->pname=$pname;
@@ -48,14 +57,7 @@ class Admin extends User{
 		}
     
     
-    public function set($key ,$value)
-    {
-        $this->$key=$value;
-    }
-    public function get($key)
-    {
-       return $this->$key;
-    }
+    
 }
 
 //$A =  Admin::getob();

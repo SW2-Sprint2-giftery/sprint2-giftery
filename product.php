@@ -26,7 +26,7 @@ if(isset($_POST['search']))
 {
     $search=$_POST['searchp'];
     
-$query =mysql_query("SELECT * FROM product  WHERE name='$search'") or die("not found");
+$query =mysql_query("SELECT * FROM product  WHERE name ='$search'") or die("not found");
     $out='';
     $count = mysql_num_rows($query);
     if($count>0)
@@ -92,7 +92,7 @@ $query =mysql_query("SELECT * FROM product  WHERE name='$search'") or die("not f
         <link rel="stylesheet" href="css/all.css">
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="css/index_style.css">
+        <link rel="stylesheet" href="css/index_style1.css">
         <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Pacifico&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/cart.css">
      </head>
@@ -147,10 +147,10 @@ $query =mysql_query("SELECT * FROM product  WHERE name='$search'") or die("not f
             
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                 <form class="position-relative mx-3 from">
-                <input class="form-control inp" id="searchInp" type="search">
-                <i class="fa fa-search position-absolute "></i>
-                 </form>
+                 <form method="post" class="position-relative mx-5 from">
+                <input name="searchp" class="form-control inp" id="searchInp" type="search">
+                <input name="search" value="GO"  type="submit" class="fa fa-search position-absolute bg-primary text-white ">
+                 </form >
                   <a href="#"><i class="fab fa-opencart fa-2x ml-5 ico"></i></a> 
              <a class="nav-link cartLink ml-2 mr-5" href="cart.php">MyCart</a>
              <a class="nav-link ico" href="#"> <i class="far fa-user ml-4 ico"></i></a>
@@ -163,10 +163,10 @@ $query =mysql_query("SELECT * FROM product  WHERE name='$search'") or die("not f
            
           <section class="home" id="home">
             
-<form  method="post" class="form-inline  float-right mt-4">
+<!--<form  method="post" class="form-inline  float-right mt-4">
       <input  name="searchp" class="form-control mr-2 mt-1" type="text" placeholder="Search" >
    <input name="search" type="submit" id="btn" value="search" class="btn btn-primary mr-3 mt-1" />
-    </form>
+    </form>-->
 
             
           

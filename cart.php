@@ -2,7 +2,6 @@
 
  session_start();
 error_reporting(0);
-
 $userprofile=	$_SESSION['username'];
 if($userprofile == true)
 {
@@ -12,6 +11,63 @@ else
 {
     	header('location:login1.php');
 }
+
+mysql_connect("localhost","root","") or die("could not find ");
+mysql_select_db("giftry_sprint2_sw2") or die("could not find ");
+
+if(isset($_POST['search']))
+{
+    $search=$_POST['searchp'];
+    
+$query =mysql_query(" SELECT   * FROM product INNER JOIN cart ON product.id=cart.pc_id WHERE cart.username='$userprofile' and product.name='$search'") or die("not found");
+    $out='';
+    $count = mysql_num_rows($query);
+    if($count>0)
+    {
+        
+        while($data =mysql_fetch_array($query))
+        {
+                $id=$data['id'];
+                $pname= $data['name'];
+                $pdesc= $data['product_desc'];
+                $pimg= $data['img'];
+                $price= $data['price'];
+            $out .=
+                '    
+                
+                <div class="text-center mx-auto py-4 mt-3 search_containt" style="border-bottom: 2px solid black ; ">
+                
+            <i class="fa fa-times Exit" aria-hidden="true"></i>
+                <div class="col-md-4 my-2  m-auto"> 
+              <div class="card  mx-auto  " style="width: 20rem;">
+          <form method="post" >
+<input style="display:none;" class="hidden" type="text" name="c_id" value="'.$id.'"/>
+                    <img name="c_img" src="images/'.$pimg.'" class="card-img-top img-fluid img" alt="'.$pimg.'">
+            <div class="card-body text-center">
+                        <h5 class="card-title cname " name="c_name" >'.$pname.'</h5>
+                        <p class="card-text cdesc" name="c_desc">'.$pdesc.'</p>
+                        <p class="card-text fa-2x cprice" name="c_price">'.$price.'.00EGP </p>
+               <button name="ADD_To_Cart" type="submit"  class="btn btn-primary cart"> ADD To Cart</button>
+            </div>
+             
+       </form>
+       
+            </div>
+            </div>
+            </div>
+            <br>
+            <br>' ;
+        }
+        
+    }
+    else
+    {
+        $out ="Not Found or invalid data";
+    }
+      
+}
+
+
  
 
  include "cart_class.php";
@@ -40,7 +96,7 @@ else
         <link rel="stylesheet" href="css/all.css">
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="css/index_style.css">
+        <link rel="stylesheet" href="css/index_style1.css">
         <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Pacifico&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/cart.css">
   </head>
@@ -96,10 +152,10 @@ else
             
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                 <form class="position-relative mx-3 from">
-                <input class="form-control inp" id="searchInp" type="search">
-                <i class="fa fa-search position-absolute "></i>
-                 </form>
+                 <form method="post" class="position-relative mx-5 from">
+                <input name="searchp" class="form-control inp" id="searchInp" type="search">
+                <input name="search" value="GO"  type="submit" class="fa fa-search position-absolute bg-primary text-white ">
+                 </form >
                   <a href="#"><i class="fab fa-opencart fa-2x ml-5 ico"></i></a> 
              <a class="nav-link cartLink ml-2 mr-5" href="cart.php">MyCart</a>
              <a class="nav-link ico" href="#"> <i class="far fa-user ml-4 ico"></i></a>
@@ -113,6 +169,7 @@ else
           <section class="home" id="home">
     
        <div class="container text-center">
+            <?php print("$out") ; ?> 
           <div class="row my-5  justify-content-center align-items-center  ">
                 <?php
               
@@ -303,6 +360,6 @@ else
             <script src="js/bootstrap.min.js"></script>
             <script src="js/owl.carousel.min.js"></script> 
             <script src="js/wow.js"></script> 
-            <script src="js/index1.js"></script> 
+         <script src="js/pro1.js"></script> 
     </body>
 </html>
