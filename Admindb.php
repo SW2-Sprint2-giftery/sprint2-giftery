@@ -12,7 +12,8 @@ else
     	header('location:login1.php');
 }
 include 'Admin.php';
-$A = new Admin();
+$A =  Admin::getob();
+//var_dump($A);
 if(isset($_POST['addproduct']))
 {
     
@@ -181,9 +182,9 @@ if(isset($_POST['deleteproduct']))
               echo '<div class="col-md-12 my-2 "> 
               <div class="card  mx-auto  " style="width:25rem;">
      
-            <div class="card-body text-center">
-                        <h5 class="card-title cname " name="c_name" >UserName:'.$pname.'</h5>
-                        <p class="card-text cdesc" name="c_desc">'.$pdesc.'</p>
+            <div class="card-body ">
+                        <h5 class="card-title cname " name="c_name" >UserName : '.$pname.'</h5>
+                        <p class="card-text cdesc text-center" name="c_desc">'.$pdesc.'</p>
              
             </div>
              

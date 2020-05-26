@@ -4,7 +4,11 @@ class DaBa{
 		public $Username;
 		public $Password;
 		public $DBname;
-
+private function _construct()
+        {
+            echo "work";
+        }
+    
 		protected function connect(){
 			$this->Servername="localhost";
 			$this->Username="root";

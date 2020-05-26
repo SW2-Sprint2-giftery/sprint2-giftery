@@ -2,8 +2,18 @@
 include 'user.php';
 
 class Admin extends User{
+      private static $ob ;
+    
+    
+   private function __construct(){
        
-   
+   }
+    public static function getob(){
+        if(!self::$ob)
+            self::$ob = new static();
+        return  self::$ob ; 
+    }
+    
     public function addproduct_A($pname,$price,$pdesc,$pimg)
     {
             $this->pname=$pname;
@@ -36,16 +46,27 @@ class Admin extends User{
 			$data=$DB->display_feedback();
             return $data;
 		}
+    
+    
+    public function set($key ,$value)
+    {
+        $this->$key=$value;
+    }
+    public function get($key)
+    {
+       return $this->$key;
+    }
 }
 
-//$A = new Admin();
+//$A =  Admin::getob();
+//$A->set('one' , 'apple');
+//$A->set('two' , 'mango');
+//var_dump($A);
+//$A2 =  Admin::getob();
+//$A2->set('3' , 'apple33');
+//$A2->set('4' , 'mango44');
+//var_dump($A2);
 
-//$A ->addproduct_A('dubai','hytr',"jff","h");
-//$A ->updateeplace(15,'dubai','kkkkkkkk',"jff","h");
-//$A ->Deleteeplace(15);
-//$A ->searchplacess('dubai');
-//$A ->displayplaces("h");
-// $A ->showalluser();
 
 
 
