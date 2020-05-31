@@ -9,7 +9,7 @@ include 'user.php';
 			$this->email=$email;
 			$this->password=$password;
             $this->address=$address;
-            $DB = new  DaBa();
+          $DB = DaBa::getob();
 			$check=$DB->Insertuser($username,$email,$password,$address);
           //echo "done";
 		}

@@ -211,10 +211,10 @@ $query =mysql_query(" SELECT   * FROM product INNER JOIN cart ON product.id=cart
          </section>
            
            
-            <section class="final"   >
+                    <section class="final"   >
             <div class="container-fluid">
                 <div class="row  justify-content-start">
-                    <div class="col-md-3 pt-3">
+                <!-- <div class="col-md-3 pt-3">
                       <h5>
                           POPULAR SEARCHES
                       </h5>
@@ -248,8 +248,8 @@ $query =mysql_query(" SELECT   * FROM product INNER JOIN cart ON product.id=cart
                         </li>
 
                       </ul>
-              </div>
-              <div class="col-md-3 pt-3">
+              </div>-->
+              <div class="col-md-4 pt-3">
                   <h5>
                       MY ACCOUNT
                   </h5>
@@ -258,77 +258,32 @@ $query =mysql_query(" SELECT   * FROM product INNER JOIN cart ON product.id=cart
                         Log In / Register</a>
 
                     </li>
-                    <li><a href="#">
+                    <li><a href="cart.php">
                         My Shopping Cart</a>
 
-                    </li>
-                    <li><a href="#">
-                        My Orders</a>
-                       
-                    </li>
-                    <li><a href="#">
-                        My Addresses</a>
-                        
-                    </li>
-                    <li><a href="#">
-                        Wish Lists</a>
-                        
-                    </li>
-                    <li><a href="#">
-                        Account Settings</a>
-                      
                     </li>
 
                   </ul>
 
                       
                 </div>
-                <div class="col-md-3 pt-3">
+                <div class="col-md-4 pt-3">
 
                     <h5>
                         SELLING ON THEGIFTERY.COM
                     </h5>
                     <ul>
-                      <li><a href="#">
+                      <li><a href="product.php">
                           Sell on thegiftery.com</a>
                       </li>
-                      <li><a href="#">
-                         How It Works</a>
-                      </li>
-                      <li><a href="#">
-                        Selling Policies</a>
-     
-                      </li>
-                      <li><a href="#">
-                          Seller Terms and Conditions </a>
-                  
-                      </li>
+                   
                     </ul>
   
-                    <h5>
-                        BUYING ON THEGIFTERY.COM
-                    </h5>
-                    <ul>
-                      <li><a href="#">
-                          How to Buy</a>
-
-                      </li>
-                      <li><a href="#">
-                          Return Policy</a>
-                      </li>
-                      <li><a href="#">
-                          Advertise with us</a>
-                      </li>
-                      <li><a href="#">
-                          Help</a>
-                  
-                      </li>
-                    </ul>
   
                         
                   </div>
-                  <div class="col-md-3 pl-5 pt-5">
-                      <h5 class="text-center pb-3">
+                  <div class="col-md-4  pt-3 text-center">
+                      <h5 class="text-left pb-3 ">
                           FOLLOW US
                       </h5>
 

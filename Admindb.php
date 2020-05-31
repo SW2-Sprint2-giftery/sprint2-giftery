@@ -12,8 +12,8 @@ else
     	header('location:login1.php');
 }
 include 'Admin.php';
-$A =  Admin::getob();
-//var_dump($A);
+$A = new Admin();
+
 if(isset($_POST['addproduct']))
 {
     

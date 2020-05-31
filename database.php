@@ -4,10 +4,26 @@ class DaBa{
 		public $Username;
 		public $Password;
 		public $DBname;
-private function _construct()
-        {
-            echo "work";
-        }
+    
+ private static $ob ;
+   private function __construct(){
+       
+   }
+    public static function getob(){
+        if(!self::$ob)
+            self::$ob = new static();
+        return  self::$ob ; 
+    }
+    
+    public function set($key ,$value)
+    {
+        $this->$key=$value;
+    }
+    public function get($key)
+    {
+       return $this->$key;
+    }
+    
     
 		protected function connect(){
 			$this->Servername="localhost";
