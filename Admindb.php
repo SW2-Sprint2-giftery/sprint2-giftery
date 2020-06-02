@@ -204,7 +204,7 @@ if(isset($_POST['deleteproduct']))
        <script src="js/jquery-3.3.1.min.js"></script>   
             <script src="js/popper.min.js"></script>    
             <script src="js/bootstrap.min.js"></script>
-     <script src="js/AdminDB11.js"></script>
+     <script src="js/AdminDB1.js"></script>
      </body>
 </html>
 

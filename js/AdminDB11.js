@@ -11,7 +11,7 @@ let btn        =document.getElementById("myBtn");
 btn.onclick=function(){
     if(reg()==true)
         {
-                     alert("done");
+                    
         }
     
     else
@@ -39,7 +39,6 @@ let btn1  =document.getElementById("myBtn2");
 btn1.onclick=function(){
     if(reg2()==true)
         {
-                     alert("done");
         }
     
     else
@@ -67,7 +66,6 @@ let btn3  =document.getElementById("myBtn3");
 btn3.onclick=function(){
     if(reg3()==true)
         {
-                     alert("done");
         }
     
     else
