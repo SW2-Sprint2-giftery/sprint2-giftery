@@ -19,20 +19,21 @@ else
  include "user.php";
 
  $p=new User();
- mysql_connect("localhost","root","") or die("could not find ");
-mysql_select_db("giftry_sprint2_sw2") or die("could not find ");
+ $conn=mysqli_connect("localhost","root","","giftry_sprint2_sw2") 
+              or die("could not find ");
+
 
 if(isset($_POST['search']))
 {
     $search=$_POST['searchp'];
-    
-$query =mysql_query("SELECT * FROM product  WHERE name ='$search'") or die("not found");
+    $sql="SELECT * FROM product  WHERE name ='$search'";
+  $query =mysqli_query($conn,$sql) or die("not found");
     $out='';
-    $count = mysql_num_rows($query);
+    $count = mysqli_num_rows($query);
     if($count>0)
     {
         
-        while($data =mysql_fetch_array($query))
+        while($data =mysqli_fetch_assoc($query))
         {
                 $id=$data['id'];
                 $pname= $data['name'];

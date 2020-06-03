@@ -12,20 +12,20 @@ else
     	header('location:login1.php');
 }
 
-mysql_connect("localhost","root","") or die("could not find ");
-mysql_select_db("giftry_sprint2_sw2") or die("could not find ");
+$conn=mysqli_connect("localhost","root","","giftry_sprint2_sw2") or die("could not find ");
+
 
 if(isset($_POST['search']))
 {
     $search=$_POST['searchp'];
-    
-$query =mysql_query(" SELECT   * FROM product INNER JOIN cart ON product.id=cart.pc_id WHERE cart.username='$userprofile' and product.name='$search'") or die("not found");
+    $sql=" SELECT   * FROM product INNER JOIN cart ON product.id=cart.pc_id WHERE cart.username='$userprofile' and product.name='$search'";
+$query =mysqli_query($conn,$sql) or die("not found");
     $out='';
-    $count = mysql_num_rows($query);
+    $count = mysqli_num_rows($query);
     if($count>0)
     {
         
-        while($data =mysql_fetch_array($query))
+        while($data =mysqli_fetch_assoc($query))
         {
                 $id=$data['id'];
                 $pname= $data['name'];
